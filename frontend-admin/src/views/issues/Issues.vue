@@ -9,17 +9,17 @@ type IssueStatus = 'pending' | 'processing' | 'resolved' | 'closed'
 const issues = ref<Issue[]>([])
 
 const columns: { id: IssueStatus; label: string; labelEn: string; color: string }[] = [
-  { id: 'pending', label: '待处理', labelEn: 'PENDING', color: '#ff2d55' },
-  { id: 'processing', label: '处理中', labelEn: 'IN PROGRESS', color: '#ff9f00' },
-  { id: 'resolved', label: '已解决', labelEn: 'RESOLVED', color: '#00ff9f' },
+  { id: 'pending', label: '待处理', labelEn: 'PENDING', color: '#ff5c9e' },
+  { id: 'processing', label: '处理中', labelEn: 'IN PROGRESS', color: '#ffd166' },
+  { id: 'resolved', label: '已解决', labelEn: 'RESOLVED', color: '#7cffcb' },
   { id: 'closed', label: '已关闭', labelEn: 'CLOSED', color: '#64748b' },
 ]
 
 const severityConfig: Record<string, { label: string; color: string }> = {
-  critical: { label: '致命', color: '#ff2d55' },
+  critical: { label: '致命', color: '#ff5c9e' },
   high: { label: '高危', color: '#ff6b35' },
-  normal: { label: '中等', color: '#ff9f00' },
-  low: { label: '低危', color: '#00ff9f' },
+  normal: { label: '中等', color: '#ffd166' },
+  low: { label: '低危', color: '#7cffcb' },
 }
 
 const hasRisk = computed(() =>
@@ -108,7 +108,7 @@ onMounted(loadData)
             :key="issue.id"
             :class="['issue-card', { 'critical-card': (issue.severity === 'critical' || issue.severity === 'high') && col.id === 'pending' }]"
             :style="{
-              borderColor: (issue.severity === 'critical' || issue.severity === 'high') ? severityConfig[issue.severity].color + '55' : 'rgba(0,212,255,0.15)',
+              borderColor: (issue.severity === 'critical' || issue.severity === 'high') ? severityConfig[issue.severity].color + '55' : 'rgba(110,231,255,0.15)',
             }"
           >
             <div class="issue-top">
@@ -135,7 +135,7 @@ onMounted(loadData)
               </div>
             </div>
             <div class="issue-assignee">
-              负责：<span style="color:#00d4ff">{{ issue.assignee }}</span>
+              负责：<span style="color:#6ee7ff">{{ issue.assignee }}</span>
             </div>
             <div class="issue-actions">
               <button
@@ -215,9 +215,9 @@ onMounted(loadData)
   padding: 16px;
   margin-bottom: 20px;
   border-radius: 8px;
-  background: rgba(255, 45, 85, 0.06);
-  border: 1px solid rgba(255, 45, 85, 0.35);
-  box-shadow: 0 0 20px rgba(255, 45, 85, 0.1);
+  background: rgba(255, 92, 158, 0.06);
+  border: 1px solid rgba(255, 92, 158, 0.35);
+  box-shadow: 0 0 20px rgba(255, 92, 158, 0.1);
 }
 
 .risk-icon {
@@ -322,7 +322,7 @@ onMounted(loadData)
 
 .meta-skill {
   font-size: 11px;
-  color: #a855f7;
+  color: #a78bfa;
 }
 
 .meta-time {
@@ -341,7 +341,7 @@ onMounted(loadData)
   flex-wrap: wrap;
   gap: 4px;
   padding-top: 8px;
-  border-top: 1px solid rgba(0, 212, 255, 0.1);
+  border-top: 1px solid rgba(110, 231, 255, 0.1);
 }
 
 .move-btn {
@@ -354,7 +354,7 @@ onMounted(loadData)
   transition: all 0.15s;
 
   &:hover {
-    background: rgba(0, 212, 255, 0.06);
+    background: rgba(110, 231, 255, 0.06);
   }
 }
 
@@ -363,7 +363,7 @@ onMounted(loadData)
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px dashed rgba(0, 212, 255, 0.12);
+  border: 1px dashed rgba(110, 231, 255, 0.12);
   border-radius: 8px;
 
   span {

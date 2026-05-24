@@ -24,10 +24,10 @@
   --el-fill-color-light: #{rgba($cyber-blue, 0.06)};
   --el-fill-color-blank: #{$cyber-card-bg};
   --el-mask-color: rgba(0, 0, 0, 0.7);
-  --el-input-bg-color: #{rgba(0, 212, 255, 0.04)};
-  --el-input-border-color: #{rgba(0, 212, 255, 0.2)};
-  --el-input-hover-border-color: #{rgba(0, 212, 255, 0.5)};
-  --el-input-focus-border-color: #{rgba(0, 212, 255, 0.7)};
+  --el-input-bg-color: #{rgba(255, 122, 223, 0.04)};
+  --el-input-border-color: #{rgba(255, 122, 223, 0.2)};
+  --el-input-hover-border-color: #{rgba(255, 122, 223, 0.5)};
+  --el-input-focus-border-color: #{rgba(255, 122, 223, 0.7)};
   --el-input-text-color: #{$cyber-text};
   --el-input-placeholder-color: #{$cyber-text-dim};
 }
@@ -38,8 +38,8 @@
   overflow: hidden;
   background-color: $cyber-bg;
   background-image:
-    linear-gradient(rgba(0, 212, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 212, 255, 0.04) 1px, transparent 1px);
+    linear-gradient(rgba(255, 122, 223, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 122, 223, 0.04) 1px, transparent 1px);
   background-size: 40px 40px;
 
   &::before {
@@ -48,7 +48,7 @@
     inset: 0;
     z-index: 0;
     pointer-events: none;
-    background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(0, 212, 255, 0.08) 0%, transparent 60%);
+    background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(255, 122, 223, 0.08) 0%, transparent 60%);
   }
 
   &::after {
@@ -84,22 +84,22 @@
     border-color: $cyber-border-purple;
   }
   &.accent-cyan {
-    border-color: rgba(0, 255, 159, 0.25);
+    border-color: rgba(124, 255, 203, 0.25);
   }
   &.accent-red {
-    border-color: rgba(255, 45, 85, 0.35);
+    border-color: rgba(255, 92, 158, 0.35);
   }
   &.accent-orange {
-    border-color: rgba(255, 159, 0, 0.25);
+    border-color: rgba(255, 209, 102, 0.25);
   }
   &.glow-blue {
-    box-shadow: 0 0 20px rgba(0, 212, 255, 0.25), 0 0 40px rgba(0, 212, 255, 0.1);
+    box-shadow: 0 0 20px rgba(255, 122, 223, 0.25), 0 0 40px rgba(255, 122, 223, 0.1);
   }
   &.glow-purple {
-    box-shadow: 0 0 20px rgba(168, 85, 247, 0.25), 0 0 40px rgba(168, 85, 247, 0.1);
+    box-shadow: 0 0 20px rgba(167, 139, 250, 0.25), 0 0 40px rgba(167, 139, 250, 0.1);
   }
   &.glow-cyan {
-    box-shadow: 0 0 20px rgba(0, 255, 159, 0.25);
+    box-shadow: 0 0 20px rgba(124, 255, 203, 0.25);
   }
 }
 
@@ -135,7 +135,7 @@
 .el-button--primary {
   background: linear-gradient(135deg, $cyber-blue 0%, $cyber-purple 100%) !important;
   border: none !important;
-  box-shadow: 0 0 20px rgba(0, 212, 255, 0.3), 0 4px 12px rgba(0, 0, 0, 0.4) !important;
+  box-shadow: 0 0 20px rgba(255, 122, 223, 0.3), 0 4px 12px rgba(0, 0, 0, 0.4) !important;
 
   &:hover {
     opacity: 0.9;
@@ -156,55 +156,55 @@
 
 .el-select .el-input__wrapper {
   background: rgba(4, 12, 28, 0.95) !important;
-  box-shadow: 0 0 0 1px rgba(0, 212, 255, 0.2) inset !important;
+  box-shadow: 0 0 0 1px rgba(255, 122, 223, 0.2) inset !important;
 
   &:hover {
-    box-shadow: 0 0 0 1px rgba(0, 212, 255, 0.5) inset !important;
+    box-shadow: 0 0 0 1px rgba(255, 122, 223, 0.5) inset !important;
   }
 
   &.is-focus {
-    box-shadow: 0 0 0 1px rgba(0, 212, 255, 0.7) inset,
-      0 0 12px rgba(0, 212, 255, 0.2) !important;
+    box-shadow: 0 0 0 1px rgba(255, 122, 223, 0.7) inset,
+      0 0 12px rgba(255, 122, 223, 0.2) !important;
   }
 }
 
 .el-select-dropdown {
   background: $cyber-bg3 !important;
-  border: 1px solid rgba(0, 212, 255, 0.2) !important;
+  border: 1px solid rgba(255, 122, 223, 0.2) !important;
 }
 
 .el-select-dropdown__item {
   color: $cyber-text !important;
 
   &:hover {
-    background: rgba(0, 212, 255, 0.08) !important;
+    background: rgba(255, 122, 223, 0.08) !important;
   }
 
   &.selected,
   &.is-selected {
     color: $cyber-blue !important;
-    background: rgba(0, 212, 255, 0.1) !important;
+    background: rgba(255, 122, 223, 0.1) !important;
   }
 }
 
 .el-popper.is-dark,
 .el-popper.is-light {
   background: $cyber-bg3 !important;
-  border: 1px solid rgba(0, 212, 255, 0.2) !important;
+  border: 1px solid rgba(255, 122, 223, 0.2) !important;
   color: $cyber-text !important;
 }
 
 .el-input__wrapper {
-  background: rgba(0, 212, 255, 0.04) !important;
-  box-shadow: 0 0 0 1px rgba(0, 212, 255, 0.2) inset !important;
+  background: rgba(255, 122, 223, 0.04) !important;
+  box-shadow: 0 0 0 1px rgba(255, 122, 223, 0.2) inset !important;
 
   &:hover {
-    box-shadow: 0 0 0 1px rgba(0, 212, 255, 0.5) inset !important;
+    box-shadow: 0 0 0 1px rgba(255, 122, 223, 0.5) inset !important;
   }
 
   &.is-focus {
-    box-shadow: 0 0 0 1px rgba(0, 212, 255, 0.7) inset,
-      0 0 12px rgba(0, 212, 255, 0.2) !important;
+    box-shadow: 0 0 0 1px rgba(255, 122, 223, 0.7) inset,
+      0 0 12px rgba(255, 122, 223, 0.2) !important;
   }
 }
 
@@ -218,19 +218,19 @@
 }
 
 .el-textarea__inner {
-  background: rgba(0, 212, 255, 0.04) !important;
-  border-color: rgba(0, 212, 255, 0.2) !important;
+  background: rgba(255, 122, 223, 0.04) !important;
+  border-color: rgba(255, 122, 223, 0.2) !important;
   color: $cyber-text !important;
   font-family: $font-body !important;
   resize: none !important;
 
   &:hover {
-    border-color: rgba(0, 212, 255, 0.5) !important;
+    border-color: rgba(255, 122, 223, 0.5) !important;
   }
 
   &:focus {
-    border-color: rgba(0, 212, 255, 0.7) !important;
-    box-shadow: 0 0 12px rgba(0, 212, 255, 0.2) !important;
+    border-color: rgba(255, 122, 223, 0.7) !important;
+    box-shadow: 0 0 12px rgba(255, 122, 223, 0.2) !important;
   }
 
   &::placeholder {
@@ -245,7 +245,7 @@
 
 .el-radio__inner {
   background: transparent !important;
-  border-color: rgba(0, 212, 255, 0.3) !important;
+  border-color: rgba(255, 122, 223, 0.3) !important;
 }
 
 .el-radio__input.is-checked .el-radio__inner {
@@ -266,8 +266,8 @@
 }
 
 .el-alert--error {
-  background: rgba(255, 45, 85, 0.1) !important;
-  border-color: rgba(255, 45, 85, 0.3) !important;
+  background: rgba(255, 92, 158, 0.1) !important;
+  border-color: rgba(255, 92, 158, 0.3) !important;
 }
 
 .el-alert__title {
@@ -277,7 +277,7 @@
 
 .el-message--error {
   background: $cyber-bg3 !important;
-  border-color: rgba(255, 45, 85, 0.4) !important;
+  border-color: rgba(255, 92, 158, 0.4) !important;
 
   .el-message__content {
     color: $cyber-red !important;
@@ -287,7 +287,7 @@
 
 .el-message--success {
   background: $cyber-bg3 !important;
-  border-color: rgba(0, 255, 159, 0.4) !important;
+  border-color: rgba(124, 255, 203, 0.4) !important;
 
   .el-message__content {
     color: $cyber-cyan !important;
@@ -303,13 +303,13 @@
 
 .el-input-number__decrease,
 .el-input-number__increase {
-  background: rgba(0, 212, 255, 0.06) !important;
+  background: rgba(255, 122, 223, 0.06) !important;
   color: $cyber-blue !important;
-  border-color: rgba(0, 212, 255, 0.2) !important;
+  border-color: rgba(255, 122, 223, 0.2) !important;
 
   &:hover {
     color: $cyber-cyan !important;
-    background: rgba(0, 212, 255, 0.12) !important;
+    background: rgba(255, 122, 223, 0.12) !important;
   }
 }
 

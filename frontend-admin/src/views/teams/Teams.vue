@@ -31,10 +31,10 @@ const filtered = computed(() => {
 })
 
 const statCards = computed(() => [
-  { label: '全部队伍', value: teams.value.length, color: '#00d4ff' },
-  { label: '正常启用', value: teams.value.filter((t: Team) => t.status === 'active').length, color: '#00ff9f' },
-  { label: '今日已提交', value: teams.value.filter((t: Team) => t.todaySubmitted).length, color: '#a855f7' },
-  { label: '今日未提交', value: teams.value.filter((t: Team) => !t.todaySubmitted).length, color: '#ff9f00' },
+  { label: '全部队伍', value: teams.value.length, color: '#6ee7ff' },
+  { label: '正常启用', value: teams.value.filter((t: Team) => t.status === 'active').length, color: '#7cffcb' },
+  { label: '今日已提交', value: teams.value.filter((t: Team) => t.todaySubmitted).length, color: '#a78bfa' },
+  { label: '今日未提交', value: teams.value.filter((t: Team) => !t.todaySubmitted).length, color: '#ffd166' },
 ])
 
 async function loadTeams() {
@@ -129,29 +129,29 @@ onMounted(loadTeams)
         </el-table-column>
         <el-table-column prop="inviteCode" label="邀请码" width="120">
           <template #default="{ row }">
-            <span class="neon-tag" style="background:rgba(0,212,255,0.1);color:#00d4ff;border:1px solid rgba(0,212,255,0.25)">{{ row.inviteCode }}</span>
+            <span class="neon-tag" style="background:rgba(255,122,223,0.1);color:#ff7adf;border:1px solid rgba(255,122,223,0.25)">{{ row.inviteCode }}</span>
           </template>
         </el-table-column>
         <el-table-column prop="memberCount" label="队员数量" width="90" align="center">
           <template #default="{ row }">
-            <span style="font-family:'Orbitron',sans-serif;color:#00d4ff">{{ row.memberCount }}</span> 人
+            <span style="font-family:'Orbitron',sans-serif;color:#6ee7ff">{{ row.memberCount }}</span> 人
           </template>
         </el-table-column>
         <el-table-column prop="todaySubmitted" label="今日提交" width="90">
           <template #default="{ row }">
-            <span v-if="row.todaySubmitted" class="neon-tag" style="background:rgba(0,255,159,0.1);color:#00ff9f;border:1px solid rgba(0,255,159,0.25)">已提交</span>
-            <span v-else class="neon-tag" style="background:rgba(255,159,0,0.1);color:#ff9f00;border:1px solid rgba(255,159,0,0.25)">未提交</span>
+            <span v-if="row.todaySubmitted" class="neon-tag" style="background:rgba(124,255,203,0.1);color:#7cffcb;border:1px solid rgba(124,255,203,0.25)">已提交</span>
+            <span v-else class="neon-tag" style="background:rgba(255,209,102,0.1);color:#ffd166;border:1px solid rgba(255,209,102,0.25)">未提交</span>
           </template>
         </el-table-column>
         <el-table-column prop="totalHours" label="累计展示时长" width="100">
           <template #default="{ row }">
-            <span style="font-family:'Orbitron',sans-serif;color:#00d4ff">{{ row.totalHours }}</span> 分钟
+            <span style="font-family:'Orbitron',sans-serif;color:#6ee7ff">{{ row.totalHours }}</span> 分钟
           </template>
         </el-table-column>
         <el-table-column prop="status" label="状态" width="80">
           <template #default="{ row }">
-            <span v-if="row.status==='active'" class="neon-tag" style="background:rgba(0,255,159,0.1);color:#00ff9f;border:1px solid rgba(0,255,159,0.25)">启用</span>
-            <span v-else class="neon-tag" style="background:rgba(100,116,139,0.1);color:#64748b;border:1px solid rgba(100,116,139,0.25)">停用</span>
+            <span v-if="row.status==='active'" class="neon-tag" style="background:rgba(124,255,203,0.1);color:#7cffcb;border:1px solid rgba(124,255,203,0.25)">启用</span>
+            <span v-else class="neon-tag" style="background:rgba(127,139,179,0.1);color:#7f8bb3;border:1px solid rgba(127,139,179,0.25)">停用</span>
           </template>
         </el-table-column>
         <el-table-column label="操作" width="150" fixed="right">
@@ -162,7 +162,7 @@ onMounted(loadTeams)
               </el-button>
               <el-button
                 size="small" text
-                :style="{ color: row.status === 'active' ? '#ff9f00' : '#00ff9f' }"
+                :style="{ color: row.status === 'active' ? '#ffd166' : '#7cffcb' }"
                 @click="handleToggle(row)"
               >
                 {{ row.status === 'active' ? '禁用' : '启用' }}
@@ -282,7 +282,7 @@ onMounted(loadTeams)
 
 .table-footer {
   padding: 12px 16px;
-  border-top: 1px solid rgba(0, 212, 255, 0.1);
+  border-top: 1px solid rgba(255, 122, 223, 0.1);
 
   span {
     font-size: 12px;
@@ -293,10 +293,10 @@ onMounted(loadTeams)
 .track-tag {
   font-size: 12px;
   padding: 2px 8px;
-  border-radius: 4px;
-  background: rgba(168, 85, 247, 0.1);
+  border-radius: 3px;
+  background: rgba(167, 139, 250, 0.1);
   color: $color-accent-purple;
-  border: 1px solid rgba(168, 85, 247, 0.25);
+  border: 1px solid rgba(167, 139, 250, 0.25);
 }
 
 .actions {

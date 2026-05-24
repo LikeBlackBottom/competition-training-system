@@ -18,27 +18,27 @@ const exportItems: ExportItem[] = [
   {
     id: 'workhours', title: '展示时长明细',
     desc: '导出所有队伍所有队员的完整训练展示时长记录，包含每日产出、遇到问题等详细字段',
-    format: 'Excel', accent: '#00d4ff', estimatedSize: '预计 ~2.4MB',
+    format: 'Excel', accent: '#6ee7ff', estimatedSize: '预计 ~2.4MB',
   },
   {
     id: 'comparison', title: '队伍对比报表',
     desc: '生成各队伍训练时长、技能点覆盖率、问题率等多维度对比分析表格',
-    format: 'Excel', accent: '#a855f7', estimatedSize: '预计 ~1.1MB',
+    format: 'Excel', accent: '#a78bfa', estimatedSize: '预计 ~1.1MB',
   },
   {
     id: 'issues', title: '问题闭环清单',
     desc: '导出所有训练问题的完整生命周期记录，包含问题描述、处理过程、闭环时间',
-    format: 'Excel', accent: '#ff9f00', estimatedSize: '预计 ~0.6MB',
+    format: 'Excel', accent: '#ffd166', estimatedSize: '预计 ~0.6MB',
   },
   {
     id: 'weekly', title: '周报文档',
      desc: '自动生成本周训练周报，包含展示时长汇总、技能进展、问题分析和下周计划',
-    format: 'Word', accent: '#00ff9f', estimatedSize: '预计 ~0.8MB',
+    format: 'Word', accent: '#7cffcb', estimatedSize: '预计 ~0.8MB',
   },
   {
     id: 'report', title: '汇报材料',
     desc: '生成适合向学校领导/竞赛委员会汇报的训练成果PDF文档，含图表和分析',
-    format: 'PDF', accent: '#ff2d55', estimatedSize: '预计 ~3.2MB',
+    format: 'PDF', accent: '#ff5c9e', estimatedSize: '预计 ~3.2MB',
   },
 ]
 
@@ -51,9 +51,9 @@ const today = new Date().toLocaleDateString('zh-CN', {
 })
 
 const formatColors: Record<string, string> = {
-  Excel: '#00ff9f',
-  Word: '#00d4ff',
-  PDF: '#ff2d55',
+  Excel: '#7cffcb',
+  Word: '#6ee7ff',
+  PDF: '#ff5c9e',
 }
 
 async function handleExport(item: ExportItem) {
@@ -91,7 +91,7 @@ async function handleExport(item: ExportItem) {
     <div class="info-banner">
       <span class="info-dot" />
       <p>
-        数据基于截至 <span style="color:#00d4ff">{{ today }}</span> 的实时训练记录生成，导出前请确认筛选条件，系统将自动按条件范围汇总。
+        数据基于截至 <span style="color:#6ee7ff">{{ today }}</span> 的实时训练记录生成，导出前请确认筛选条件，系统将自动按条件范围汇总。
       </p>
     </div>
 
@@ -102,8 +102,8 @@ async function handleExport(item: ExportItem) {
         class="export-card"
         :class="{ generating: generating === item.id, done: done.includes(item.id) }"
         :style="{
-          borderColor: done.includes(item.id) ? 'rgba(0,255,159,0.4)' : item.accent + '30',
-          boxShadow: done.includes(item.id) ? '0 0 20px rgba(0,255,159,0.2)' : generating === item.id ? '0 0 20px ' + item.accent + '33' : 'none',
+          borderColor: done.includes(item.id) ? 'rgba(124, 255, 203,0.4)' : item.accent + '30',
+          boxShadow: done.includes(item.id) ? '0 0 20px rgba(124, 255, 203,0.2)' : generating === item.id ? '0 0 20px ' + item.accent + '33' : 'none',
         }"
         @click="handleExport(item)"
       >
@@ -111,7 +111,7 @@ async function handleExport(item: ExportItem) {
 
         <div class="export-icon" :style="{ background: item.accent + '12', borderColor: item.accent + '35', color: item.accent, boxShadow: '0 0 16px ' + item.accent + '20' }">
           <span v-if="generating === item.id" class="spinner" />
-          <span v-else-if="done.includes(item.id)" style="color:#00ff9f;font-size:22px">✓</span>
+          <span v-else-if="done.includes(item.id)" style="color:#7cffcb;font-size:22px">✓</span>
           <span v-else style="font-size:22px">📄</span>
         </div>
 
@@ -129,9 +129,9 @@ async function handleExport(item: ExportItem) {
           <div
             class="export-btn"
             :style="{
-              background: done.includes(item.id) ? 'rgba(0,255,159,0.12)' : item.accent + '12',
-              color: done.includes(item.id) ? '#00ff9f' : item.accent,
-              borderColor: done.includes(item.id) ? 'rgba(0,255,159,0.35)' : item.accent + '30',
+              background: done.includes(item.id) ? 'rgba(124, 255, 203,0.12)' : item.accent + '12',
+              color: done.includes(item.id) ? '#7cffcb' : item.accent,
+              borderColor: done.includes(item.id) ? 'rgba(124, 255, 203,0.35)' : item.accent + '30',
             }"
           >
             <template v-if="generating === item.id">
@@ -185,8 +185,8 @@ async function handleExport(item: ExportItem) {
   padding: 12px 16px;
   border-radius: 8px;
   margin-bottom: 24px;
-  background: rgba(0, 212, 255, 0.06);
-  border: 1px solid rgba(0, 212, 255, 0.2);
+  background: rgba(110, 231, 255, 0.06);
+  border: 1px solid rgba(110, 231, 255, 0.2);
 
   p {
     font-size: 12px;
@@ -283,7 +283,7 @@ async function handleExport(item: ExportItem) {
   align-items: center;
   justify-content: space-between;
   padding-top: 12px;
-  border-top: 1px solid rgba(0, 212, 255, 0.08);
+  border-top: 1px solid rgba(110, 231, 255, 0.08);
 }
 
 .export-size {
@@ -333,7 +333,7 @@ async function handleExport(item: ExportItem) {
   padding: 16px;
   border-radius: 8px;
   background: rgba(4, 12, 28, 0.6);
-  border: 1px solid rgba(0, 212, 255, 0.1);
+  border: 1px solid rgba(110, 231, 255, 0.1);
 
   p {
     font-size: 12px;

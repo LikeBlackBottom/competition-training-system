@@ -145,8 +145,8 @@ onMounted(async () => {
         <span class="header-date">{{ today }}</span>
         <span class="header-status">
           <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-            <circle cx="5" cy="5" r="4" stroke="#00ff9f" stroke-width="1" />
-            <path d="M3 5l1.5 1.5L7 3.5" stroke="#00ff9f" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
+            <circle cx="5" cy="5" r="4" stroke="#7cffcb" stroke-width="1" />
+            <path d="M3 5l1.5 1.5L7 3.5" stroke="#7cffcb" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
           </svg>
           今日可提交
         </span>
@@ -271,15 +271,15 @@ onMounted(async () => {
 
               <el-form-item label="是否需要老师协助">
                 <el-radio-group v-model="form.needHelp" class="cyber-radio-group">
-                  <el-radio :value="false" class="radio-cyan">不需要</el-radio>
-                  <el-radio :value="true" class="radio-orange">需要协助</el-radio>
+                  <el-radio :value="false">不需要</el-radio>
+                  <el-radio :value="true">需要协助</el-radio>
                 </el-radio-group>
               </el-form-item>
 
               <div class="form-warning">
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                  <path d="M7 1v7M7 11v.5" stroke="#ff9f00" stroke-width="1.5" stroke-linecap="round" />
-                  <circle cx="7" cy="7" r="6" stroke="#ff9f00" stroke-width="1" />
+                  <path d="M7 1v7M7 11v.5" stroke="#ffd166" stroke-width="1.5" stroke-linecap="round" />
+                  <circle cx="7" cy="7" r="6" stroke="#ffd166" stroke-width="1" />
                 </svg>
                 提交后不可查看、修改或删除，请仔细核对
               </div>
@@ -306,8 +306,8 @@ onMounted(async () => {
           <div class="cyber-card accent-purple sidebar-card">
             <div class="sidebar-card-header">
               <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
-                <circle cx="7.5" cy="7.5" r="6.5" stroke="#a855f7" stroke-width="1.3" />
-                <path d="M7.5 4v3.5M7.5 10.5v.3" stroke="#a855f7" stroke-width="1.5" stroke-linecap="round" />
+                <circle cx="7.5" cy="7.5" r="6.5" stroke="#a78bfa" stroke-width="1.3" />
+                <path d="M7.5 4v3.5M7.5 10.5v.3" stroke="#a78bfa" stroke-width="1.5" stroke-linecap="round" />
               </svg>
               <span class="sidebar-card-title text-purple">今日训练提交说明</span>
             </div>
@@ -323,8 +323,8 @@ onMounted(async () => {
           <div class="cyber-card accent-red sidebar-card">
             <div class="sidebar-card-header">
               <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
-                <path d="M7.5 1.5v7M7.5 11.5v.5" stroke="#ff2d55" stroke-width="1.5" stroke-linecap="round" />
-                <circle cx="7.5" cy="7.5" r="6.5" stroke="#ff2d55" stroke-width="1.3" />
+                <path d="M7.5 1.5v7M7.5 11.5v.5" stroke="#ff5c9e" stroke-width="1.5" stroke-linecap="round" />
+                <circle cx="7.5" cy="7.5" r="6.5" stroke="#ff5c9e" stroke-width="1.3" />
               </svg>
               <span class="sidebar-card-title text-red">权限提示</span>
             </div>
@@ -370,8 +370,8 @@ onMounted(async () => {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: rgba(2, 8, 18, 0.95);
-  border-bottom: 1px solid rgba(0, 212, 255, 0.15);
+  background: rgba(5, 7, 22, 0.95);
+  border-bottom: 1px solid rgba(255, 122, 223, 0.12);
   backdrop-filter: blur(12px);
 }
 
@@ -385,29 +385,29 @@ onMounted(async () => {
   font-size: 12px;
   font-family: 'Share Tech Mono', monospace;
   letter-spacing: 0.1em;
-  color: #00d4ff;
+  color: #ff7adf;
 }
 
 .header-divider {
   width: 1px;
   height: 16px;
-  background: rgba(0, 212, 255, 0.25);
+  background: rgba(255, 122, 223, 0.2);
 }
 
 .header-team {
   font-size: 14px;
   font-weight: 500;
-  color: #c0d8f0;
+  color: #f8f7ff;
 }
 
 .header-track {
   padding: 2px 8px;
-  border-radius: 4px;
+  border-radius: 3px;
   font-size: 12px;
   font-family: 'Share Tech Mono', monospace;
-  background: rgba(0, 255, 159, 0.1);
-  border: 1px solid rgba(0, 255, 159, 0.3);
-  color: #00ff9f;
+  background: rgba(124, 255, 203, 0.08);
+  border: 1px solid rgba(124, 255, 203, 0.25);
+  color: #7cffcb;
 }
 
 .header-right {
@@ -419,7 +419,7 @@ onMounted(async () => {
 .header-date {
   font-size: 12px;
   font-family: 'Share Tech Mono', monospace;
-  color: #5a7090;
+  color: #7f8bb3;
 }
 
 .header-status {
@@ -427,17 +427,17 @@ onMounted(async () => {
   align-items: center;
   gap: 6px;
   padding: 4px 12px;
-  border-radius: 4px;
+  border-radius: 3px;
   font-size: 12px;
-  background: rgba(0, 255, 159, 0.08);
-  color: #00ff9f;
-  border: 1px solid rgba(0, 255, 159, 0.2);
+  background: rgba(124, 255, 203, 0.06);
+  color: #7cffcb;
+  border: 1px solid rgba(124, 255, 203, 0.2);
 }
 
 .logout-btn {
   background: transparent !important;
-  border: 1px solid rgba(0, 212, 255, 0.25) !important;
-  color: #c0d8f0 !important;
+  border: 1px solid rgba(255, 122, 223, 0.2) !important;
+  color: #b8c3e8 !important;
   font-size: 12px !important;
   padding: 6px 14px !important;
   display: flex !important;
@@ -446,8 +446,8 @@ onMounted(async () => {
 }
 
 .logout-btn:hover {
-  border-color: rgba(0, 212, 255, 0.5) !important;
-  color: #00d4ff !important;
+  border-color: rgba(255, 122, 223, 0.4) !important;
+  color: #ff7adf !important;
 }
 
 .page-content {
@@ -463,14 +463,15 @@ onMounted(async () => {
 .content-title {
   font-family: 'Orbitron', sans-serif;
   font-size: 1.3rem;
-  color: #c0d8f0;
+  color: #f8f7ff;
   letter-spacing: 0.06em;
   margin-bottom: 4px;
+  text-shadow: 0 0 12px rgba(255, 122, 223, 0.2);
 }
 
 .content-subtitle {
   font-size: 12px;
-  color: #5a7090;
+  color: #7f8bb3;
 }
 
 .content-grid {
@@ -504,6 +505,7 @@ onMounted(async () => {
 .cyber-radio-group {
   display: flex;
   gap: 24px;
+  flex-wrap: wrap;
 }
 
 .cyber-radio-group :deep(.el-radio) {
@@ -512,24 +514,6 @@ onMounted(async () => {
 
 .cyber-radio-group :deep(.el-radio__label) {
   font-size: 14px !important;
-}
-
-.radio-cyan :deep(.el-radio__input.is-checked + .el-radio__label) {
-  color: #00ff9f !important;
-}
-
-.radio-cyan :deep(.el-radio__input.is-checked .el-radio__inner) {
-  border-color: #00ff9f !important;
-  background: #00ff9f !important;
-}
-
-.radio-orange :deep(.el-radio__input.is-checked + .el-radio__label) {
-  color: #ff9f00 !important;
-}
-
-.radio-orange :deep(.el-radio__input.is-checked .el-radio__inner) {
-  border-color: #ff9f00 !important;
-  background: #ff9f00 !important;
 }
 
 .cyber-textarea {
@@ -542,11 +526,11 @@ onMounted(async () => {
   gap: 8px;
   padding: 12px 16px;
   margin-bottom: 20px;
-  border-radius: 6px;
+  border-radius: 4px;
   font-size: 13px;
-  color: #ff9f00;
-  background: rgba(255, 159, 0, 0.06);
-  border: 1px solid rgba(255, 159, 0, 0.2);
+  color: #ffd166;
+  background: rgba(255, 209, 102, 0.05);
+  border: 1px solid rgba(255, 209, 102, 0.18);
 }
 
 .submit-btn {
@@ -580,14 +564,14 @@ onMounted(async () => {
 
 .sidebar-card-label {
   font-size: 12px;
-  color: #00d4ff;
+  color: #ff7adf;
   font-family: 'Share Tech Mono', monospace;
 }
 
 .sidebar-card-body {
   font-size: 12px;
   line-height: 1.8;
-  color: #5a7090;
+  color: #7f8bb3;
 }
 
 .sidebar-card-body p {
@@ -595,14 +579,30 @@ onMounted(async () => {
 }
 
 .sidebar-card-note {
-  color: #3a5070;
+  color: #5a6080;
   padding-top: 4px;
   margin-top: 4px;
-  border-top: 1px solid rgba(0, 212, 255, 0.06);
+  border-top: 1px solid rgba(255, 122, 223, 0.06);
 }
 
 .text-white {
-  color: #c0d8f0;
+  color: #f8f7ff;
+}
+
+.text-purple {
+  color: #a78bfa;
+}
+
+.text-red {
+  color: #ff5c9e;
+}
+
+.text-orange {
+  color: #ffd166;
+}
+
+.text-cyan {
+  color: #6ee7ff;
 }
 
 .sidebar-card-stats .stat-row {
@@ -616,12 +616,12 @@ onMounted(async () => {
 }
 
 .stat-label {
-  color: #5a7090;
+  color: #7f8bb3;
   font-size: 12px;
 }
 
 .stat-value {
-  color: #c0d8f0;
+  color: #f8f7ff;
   font-size: 12px;
 }
 

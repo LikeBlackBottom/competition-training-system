@@ -73,16 +73,16 @@ function clearFilters() {
 }
 
 const statusLabels: Record<string, { label: string; color: string }> = {
-  completed: { label: '已完成', color: '#00ff9f' },
-  partial: { label: '部分完成', color: '#ff9f00' },
-  blocked: { label: '受阻', color: '#ff2d55' },
+  completed: { label: '已完成', color: '#7cffcb' },
+  partial: { label: '部分完成', color: '#ffd166' },
+  blocked: { label: '受阻', color: '#ff5c9e' },
   notStarted: { label: '未开始', color: '#64748b' },
   '未开始': { label: '未开始', color: '#64748b' },
-  '进行中': { label: '进行中', color: '#ff9f00' },
-  '部分完成': { label: '部分完成', color: '#ff9f00' },
-  '已完成': { label: '已完成', color: '#00ff9f' },
-  '已掌握': { label: '已掌握', color: '#00ff9f' },
-  '受阻': { label: '受阻', color: '#ff2d55' },
+  '进行中': { label: '进行中', color: '#ffd166' },
+  '部分完成': { label: '部分完成', color: '#ffd166' },
+  '已完成': { label: '已完成', color: '#7cffcb' },
+  '已掌握': { label: '已掌握', color: '#7cffcb' },
+  '受阻': { label: '受阻', color: '#ff5c9e' },
 }
 
 onMounted(loadData)
@@ -104,26 +104,26 @@ onMounted(loadData)
     <div class="stat-row">
       <div class="cyber-card stat-mini">
         <span class="stat-label">筛选记录数</span>
-        <span class="stat-num" style="color:#00d4ff">{{ filtered.length }}</span>
+        <span class="stat-num" style="color:#6ee7ff">{{ filtered.length }}</span>
       </div>
       <div class="cyber-card stat-mini">
         <span class="stat-label">有效展示时长</span>
-        <span class="stat-num" style="color:#00ff9f">{{ totalHours }} 分钟</span>
+        <span class="stat-num" style="color:#7cffcb">{{ totalHours }} 分钟</span>
       </div>
       <div class="cyber-card stat-mini">
         <span class="stat-label">需协助记录</span>
-        <span class="stat-num" style="color:#ff9f00">{{ filtered.filter((r: WorkRecord) => r.needHelp).length }}</span>
+        <span class="stat-num" style="color:#ffd166">{{ filtered.filter((r: WorkRecord) => r.needHelp).length }}</span>
       </div>
       <div class="cyber-card stat-mini">
         <span class="stat-label">已作废</span>
-        <span class="stat-num" style="color:#ff2d55">{{ filtered.filter((r: WorkRecord) => r.recordStatus === 'voided').length }}</span>
+        <span class="stat-num" style="color:#ff5c9e">{{ filtered.filter((r: WorkRecord) => r.recordStatus === 'voided').length }}</span>
       </div>
     </div>
 
     <div class="cyber-card filter-panel">
       <div class="filter-toggle" @click="filterExpanded = !filterExpanded">
         <div class="filter-toggle-left">
-          <el-icon :size="14" color="#00d4ff"><Filter /></el-icon>
+          <el-icon :size="14" color="#6ee7ff"><Filter /></el-icon>
           <span>高级筛选</span>
           <span v-if="filters.date || filters.teamName !== 'all' || filters.moduleName !== 'all' || filters.progressStatus !== 'all' || filters.needHelp !== 'all'" class="filter-badge">已筛选</span>
         </div>
@@ -187,19 +187,19 @@ onMounted(loadData)
         <el-table-column prop="date" label="日期" width="100" />
         <el-table-column prop="teamName" label="队伍" width="100">
           <template #default="{ row }">
-            <span class="neon-tag" style="background:rgba(0,212,255,0.1);color:#00d4ff;border:1px solid rgba(0,212,255,0.25)">{{ row.teamName }}</span>
+            <span class="neon-tag" style="background:rgba(110,231,255,0.1);color:#6ee7ff;border:1px solid rgba(110,231,255,0.25)">{{ row.teamName }}</span>
           </template>
         </el-table-column>
         <el-table-column prop="memberName" label="队员" width="80" />
         <el-table-column prop="moduleName" label="模块" width="100">
           <template #default="{ row }">
-            <span style="color:#a855f7">{{ row.moduleName }}</span>
+            <span style="color:#a78bfa">{{ row.moduleName }}</span>
           </template>
         </el-table-column>
         <el-table-column prop="skillName" label="技能点" width="90" />
         <el-table-column prop="hours" label="展示时长（分钟）" width="70">
           <template #default="{ row }">
-            <span style="font-family:'Orbitron',sans-serif;color:#00ff9f">{{ row.hours }} 分钟</span>
+            <span style="font-family:'Orbitron',sans-serif;color:#7cffcb">{{ row.hours }} 分钟</span>
           </template>
         </el-table-column>
         <el-table-column prop="completionStatus" label="完成状态" width="85">
@@ -217,19 +217,19 @@ onMounted(loadData)
         <el-table-column prop="todayOutput" label="今日产出" min-width="180" show-overflow-tooltip />
         <el-table-column prop="issue" label="遇到问题" min-width="140" show-overflow-tooltip>
           <template #default="{ row }">
-            <span :style="{ color: row.issue ? '#ff9f00' : '#3a5070' }">{{ row.issue || '无' }}</span>
+            <span :style="{ color: row.issue ? '#ffd166' : '#3a5070' }">{{ row.issue || '无' }}</span>
           </template>
         </el-table-column>
         <el-table-column prop="needHelp" label="需协助" width="70">
           <template #default="{ row }">
-            <span v-if="row.needHelp" class="neon-tag" style="background:rgba(255,159,0,0.1);color:#ff9f00;border:1px solid rgba(255,159,0,0.25)">需要</span>
+            <span v-if="row.needHelp" class="neon-tag" style="background:rgba(255,209,102,0.1);color:#ffd166;border:1px solid rgba(255,209,102,0.25)">需要</span>
             <span v-else style="color:#3a5070">否</span>
           </template>
         </el-table-column>
         <el-table-column label="记录状态" width="80">
           <template #default="{ row }">
-            <span v-if="row.recordStatus === 'voided'" class="neon-tag" style="background:rgba(255,45,85,0.1);color:#ff2d55;border:1px solid rgba(255,45,85,0.25)">已作废</span>
-            <span v-else class="neon-tag" style="background:rgba(0,255,159,0.1);color:#00ff9f;border:1px solid rgba(0,255,159,0.25)">正常</span>
+            <span v-if="row.recordStatus === 'voided'" class="neon-tag" style="background:rgba(255,92,158,0.1);color:#ff5c9e;border:1px solid rgba(255,92,158,0.25)">已作废</span>
+            <span v-else class="neon-tag" style="background:rgba(124,255,203,0.1);color:#7cffcb;border:1px solid rgba(124,255,203,0.25)">正常</span>
           </template>
         </el-table-column>
         <el-table-column label="操作" width="80" fixed="right">
@@ -248,7 +248,7 @@ onMounted(loadData)
       </el-table>
       <div class="table-footer">
         <span>显示 {{ filtered.length }} 条记录</span>
-        <span>有效展示时长 <span style="color:#00ff9f;font-family:'Orbitron',sans-serif">{{ totalHours }} 分钟</span></span>
+        <span>有效展示时长 <span style="color:#7cffcb;font-family:'Orbitron',sans-serif">{{ totalHours }} 分钟</span></span>
         <span>注：记录仅可作废，不做物理删除</span>
       </div>
     </div>
@@ -317,7 +317,7 @@ onMounted(loadData)
   user-select: none;
 
   &:hover {
-    background: rgba(0, 212, 255, 0.02);
+    background: rgba(110, 231, 255, 0.02);
   }
 }
 
@@ -338,14 +338,14 @@ onMounted(loadData)
 .filter-badge {
   padding: 2px 8px;
   border-radius: 4px;
-  background: rgba(0, 212, 255, 0.12);
+  background: rgba(110, 231, 255, 0.12);
   color: $color-accent-blue !important;
   font-size: 11px !important;
 }
 
 .filter-body {
   padding: 0 16px 16px;
-  border-top: 1px solid rgba(0, 212, 255, 0.1);
+  border-top: 1px solid rgba(110, 231, 255, 0.1);
 }
 
 .filter-grid {
@@ -377,7 +377,7 @@ onMounted(loadData)
 
 .table-footer {
   padding: 12px 16px;
-  border-top: 1px solid rgba(0, 212, 255, 0.1);
+  border-top: 1px solid rgba(110, 231, 255, 0.1);
   display: flex;
   align-items: center;
   gap: 16px;

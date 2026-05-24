@@ -49,6 +49,9 @@ async function handleLogin() {
         <div>CTMS v2.0.1</div>
         <div>SEC-LEVEL: A1</div>
       </div>
+      <div class="pixel-dot dot-1" />
+      <div class="pixel-dot dot-2" />
+      <div class="pixel-dot dot-3" />
     </div>
 
     <div class="login-container">
@@ -65,7 +68,7 @@ async function handleLogin() {
       <div class="login-card">
         <div class="card-accent-bar" />
         <div class="card-header">
-          <el-icon :size="16" color="#00d4ff"><Lock /></el-icon>
+          <el-icon :size="16" color="#ff7adf"><Lock /></el-icon>
           <span>指导老师登录</span>
           <span class="blink-cursor">█</span>
         </div>
@@ -134,8 +137,8 @@ async function handleLogin() {
   justify-content: center;
   background: $color-bg-primary;
   background-image:
-    linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
+    linear-gradient(rgba(255, 122, 223, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(110, 231, 255, 0.02) 1px, transparent 1px);
   background-size: 40px 40px;
   position: relative;
   overflow: hidden;
@@ -154,8 +157,8 @@ async function handleLogin() {
   left: 24px;
   width: 80px;
   height: 80px;
-  border-top: 2px solid rgba(0, 212, 255, 0.5);
-  border-left: 2px solid rgba(0, 212, 255, 0.5);
+  border-top: 2px solid rgba(255, 122, 223, 0.5);
+  border-left: 2px solid rgba(255, 122, 223, 0.5);
   border-radius: 4px 0 0 0;
 }
 
@@ -165,8 +168,8 @@ async function handleLogin() {
   right: 24px;
   width: 80px;
   height: 80px;
-  border-bottom: 2px solid rgba(168, 85, 247, 0.5);
-  border-right: 2px solid rgba(168, 85, 247, 0.5);
+  border-bottom: 2px solid rgba(110, 231, 255, 0.5);
+  border-right: 2px solid rgba(110, 231, 255, 0.5);
   border-radius: 0 0 4px 0;
 }
 
@@ -179,28 +182,45 @@ async function handleLogin() {
   top: 80px;
   left: 32px;
   width: 256px;
-  background: linear-gradient(90deg, rgba(0, 212, 255, 0.4), transparent);
+  background: linear-gradient(90deg, rgba(255, 122, 223, 0.4), transparent);
 }
 
 .top-line-short {
   top: 96px;
   left: 32px;
   width: 160px;
-  background: linear-gradient(90deg, rgba(0, 212, 255, 0.2), transparent);
+  background: linear-gradient(90deg, rgba(255, 122, 223, 0.2), transparent);
 }
 
 .bottom-line-right {
   bottom: 80px;
   right: 32px;
   width: 256px;
-  background: linear-gradient(270deg, rgba(168, 85, 247, 0.4), transparent);
+  background: linear-gradient(270deg, rgba(110, 231, 255, 0.4), transparent);
 }
 
 .bottom-line-short {
   bottom: 96px;
   right: 32px;
   width: 160px;
-  background: linear-gradient(270deg, rgba(168, 85, 247, 0.2), transparent);
+  background: linear-gradient(270deg, rgba(110, 231, 255, 0.2), transparent);
+}
+
+.pixel-dot {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: rgba(255, 122, 223, 0.5);
+  animation: pixelBlink 2s ease-in-out infinite;
+}
+
+.dot-1 { top: 120px; left: 40px; animation-delay: 0s; }
+.dot-2 { bottom: 120px; right: 50px; animation-delay: 0.7s; background: rgba(110, 231, 255, 0.5); }
+.dot-3 { top: 50%; right: 60px; animation-delay: 1.4s; background: rgba(167, 139, 250, 0.4); }
+
+@keyframes pixelBlink {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; box-shadow: 0 0 8px currentColor; }
 }
 
 .status-left {
@@ -209,7 +229,7 @@ async function handleLogin() {
   left: 32px;
   font-family: $font-mono;
   font-size: 12px;
-  color: rgba(100, 116, 139, 0.5);
+  color: rgba(127, 139, 179, 0.5);
   line-height: 1.6;
 }
 
@@ -220,7 +240,7 @@ async function handleLogin() {
   text-align: right;
   font-family: $font-mono;
   font-size: 12px;
-  color: rgba(100, 116, 139, 0.5);
+  color: rgba(127, 139, 179, 0.5);
   line-height: 1.6;
 }
 
@@ -242,17 +262,17 @@ async function handleLogin() {
   align-items: center;
   gap: 8px;
   padding: 6px 16px;
-  border-radius: 8px;
+  border-radius: 4px;
   margin-bottom: 20px;
-  background: rgba(0, 212, 255, 0.06);
-  border: 1px solid rgba(0, 212, 255, 0.2);
+  background: rgba(255, 122, 223, 0.06);
+  border: 1px solid rgba(255, 122, 223, 0.25);
 }
 
 .badge-text {
   font-family: $font-mono;
   font-size: 11px;
   letter-spacing: 0.1em;
-  color: $color-accent-blue;
+  color: $color-accent-pink;
 }
 
 .login-title {
@@ -262,6 +282,7 @@ async function handleLogin() {
   color: $color-text-primary;
   letter-spacing: 0.08em;
   line-height: 1.2;
+  text-shadow: 0 0 30px rgba(255, 122, 223, 0.2);
 }
 
 .login-subtitle {
@@ -273,13 +294,17 @@ async function handleLogin() {
 }
 
 .login-card {
-  border-radius: 12px;
+  border-radius: 6px;
   padding: 32px;
   position: relative;
   overflow: hidden;
-  background: rgba(4, 12, 28, 0.98);
-  border: 1px solid rgba(0, 212, 255, 0.3);
-  box-shadow: 0 0 60px rgba(0, 212, 255, 0.12), 0 0 120px rgba(168, 85, 247, 0.06);
+  background: rgba(20, 24, 52, 0.95);
+  border: 1px solid rgba(255, 122, 223, 0.25);
+  box-shadow:
+    4px 4px 0 rgba(110, 231, 255, 0.08),
+    0 0 60px rgba(255, 122, 223, 0.12),
+    0 0 120px rgba(110, 231, 255, 0.06);
+  animation: breatheGlow 3s ease-in-out infinite;
 
   &::after {
     content: '';
@@ -287,7 +312,7 @@ async function handleLogin() {
     left: 0;
     right: 0;
     height: 2px;
-    background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.8), transparent);
+    background: linear-gradient(90deg, transparent, rgba(255, 122, 223, 0.8), transparent);
     animation: dataScan 3s linear infinite;
   }
 }
@@ -297,13 +322,18 @@ async function handleLogin() {
   100% { top: 100%; opacity: 0; }
 }
 
+@keyframes breatheGlow {
+  0%, 100% { box-shadow: 4px 4px 0 rgba(110, 231, 255, 0.08), 0 0 40px rgba(255, 122, 223, 0.1), 0 0 80px rgba(110, 231, 255, 0.04); }
+  50% { box-shadow: 4px 4px 0 rgba(110, 231, 255, 0.12), 0 0 60px rgba(255, 122, 223, 0.18), 0 0 100px rgba(110, 231, 255, 0.08); }
+}
+
 .card-accent-bar {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   height: 2px;
-  background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.8), rgba(168, 85, 247, 0.8), transparent);
+  background: linear-gradient(90deg, transparent, #ff7adf, #6ee7ff, transparent);
 }
 
 .card-header {
@@ -319,7 +349,7 @@ async function handleLogin() {
 .blink-cursor {
   font-family: $font-mono;
   font-size: 14px;
-  color: $color-accent-blue;
+  color: $color-accent-pink;
   margin-left: auto;
   animation: blink 1s step-end infinite;
 }
@@ -356,22 +386,27 @@ async function handleLogin() {
   .cyber-input {
     width: 100%;
     padding: 12px 16px 12px 38px;
-    border-radius: 6px;
+    border-radius: 4px;
     outline: none;
-    transition: all 0.2s;
+    transition: all 0.3s;
     font-size: 14px;
-    background: rgba(0, 212, 255, 0.04);
-    border: 1px solid rgba(0, 212, 255, 0.2);
+    background: rgba(20, 24, 52, 0.92);
+    border: 1px solid rgba(255, 122, 223, 0.2);
     color: $color-text-primary;
     font-family: $font-body;
 
     &:focus {
-      border-color: rgba(0, 212, 255, 0.7);
-      box-shadow: 0 0 12px rgba(0, 212, 255, 0.15);
+      border-color: rgba(255, 122, 223, 0.7);
+      box-shadow: 0 0 12px rgba(255, 122, 223, 0.15), 0 0 4px rgba(255, 122, 223, 0.3);
     }
 
     &.input-error {
-      border-color: rgba(255, 45, 85, 0.6);
+      border-color: rgba(255, 92, 158, 0.6);
+      box-shadow: 0 0 8px rgba(255, 92, 158, 0.15);
+    }
+
+    &::placeholder {
+      color: $color-text-muted;
     }
   }
 }
@@ -391,6 +426,7 @@ async function handleLogin() {
   font-size: 15px;
   font-weight: 600;
   margin-top: 4px;
+  cursor: pointer;
 
   .spinner {
     width: 16px;
@@ -410,6 +446,6 @@ async function handleLogin() {
   text-align: center;
   margin-top: 16px;
   font-size: 12px;
-  color: rgba(100, 116, 139, 0.6);
+  color: rgba(127, 139, 179, 0.6);
 }
 </style>

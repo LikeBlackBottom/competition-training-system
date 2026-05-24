@@ -8,6 +8,7 @@ import router from './router'
 import './assets/styles/variables.scss'
 import './assets/styles/cyberpunk.scss'
 import './assets/styles/global.scss'
+import './assets/styles/theme-pixel-girl.scss'
 
 const app = createApp(App)
 app.use(createPinia())

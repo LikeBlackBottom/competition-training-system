@@ -71,7 +71,6 @@ function isActive(itemRoute: string) {
             <span class="nav-label">{{ item.label }}</span>
             <span class="nav-en-label">{{ item.enLabel }}</span>
           </div>
-          <el-icon v-if="isActive(item.route)" :size="12" class="nav-arrow"><Cpu /></el-icon>
         </div>
       </nav>
 
@@ -124,8 +123,8 @@ function isActive(itemRoute: string) {
   min-height: 100vh;
   background: $color-bg-primary;
   background-image:
-    linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
+    linear-gradient(rgba(255, 122, 223, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(110, 231, 255, 0.015) 1px, transparent 1px);
   background-size: 40px 40px;
 }
 
@@ -138,15 +137,15 @@ function isActive(itemRoute: string) {
   top: 0;
   height: 100vh;
   overflow-y: auto;
-  background: rgba(3, 8, 20, 0.98);
-  border-right: 1px solid rgba(0, 212, 255, 0.15);
+  background: rgba(5, 7, 22, 0.98);
+  border-right: 1px solid rgba(255, 122, 223, 0.12);
   backdrop-filter: blur(20px);
   animation: sidebarGlow 4s ease-in-out infinite;
 }
 
 @keyframes sidebarGlow {
-  0%, 100% { box-shadow: 2px 0 30px rgba(0, 212, 255, 0.06); }
-  50% { box-shadow: 2px 0 30px rgba(0, 212, 255, 0.12); }
+  0%, 100% { box-shadow: 2px 0 30px rgba(255, 122, 223, 0.04); }
+  50% { box-shadow: 2px 0 30px rgba(255, 122, 223, 0.08); }
 }
 
 .sidebar-header {
@@ -154,7 +153,7 @@ function isActive(itemRoute: string) {
   align-items: center;
   gap: 12px;
   padding: 20px;
-  border-bottom: 1px solid rgba(0, 212, 255, 0.12);
+  border-bottom: 1px solid rgba(255, 122, 223, 0.1);
 }
 
 .logo-icon {
@@ -163,17 +162,17 @@ function isActive(itemRoute: string) {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 8px;
-  background: rgba(0, 212, 255, 0.1);
-  border: 1px solid rgba(0, 212, 255, 0.35);
-  box-shadow: 0 0 16px rgba(0, 212, 255, 0.25);
-  color: $color-accent-blue;
+  border-radius: 6px;
+  background: rgba(255, 122, 223, 0.1);
+  border: 1px solid rgba(255, 122, 223, 0.3);
+  box-shadow: 0 0 16px rgba(255, 122, 223, 0.15);
+  color: $color-accent-pink;
 }
 
 .logo-title {
   font-family: $font-heading;
   font-size: 0.7rem;
-  color: $color-accent-blue;
+  color: $color-accent-pink;
   letter-spacing: 0.1em;
   display: block;
 }
@@ -196,21 +195,45 @@ function isActive(itemRoute: string) {
   align-items: center;
   gap: 12px;
   padding: 10px 12px;
-  border-radius: 8px;
+  border-radius: 4px;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all 0.25s;
   color: $color-text-muted;
   border: 1px solid transparent;
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px),
+      linear-gradient(0deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+    background-size: 8px 8px;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
 
   &:hover {
-    background: rgba(0, 212, 255, 0.05);
+    background: rgba(255, 122, 223, 0.05);
     color: $color-text-primary;
+
+    &::after {
+      opacity: 0.15;
+    }
   }
 
   &.active {
-    background: linear-gradient(90deg, rgba(0, 212, 255, 0.12), rgba(168, 85, 247, 0.08));
-    border-color: rgba(0, 212, 255, 0.25);
-    color: $color-accent-blue;
+    background: linear-gradient(90deg, rgba(255, 122, 223, 0.12), rgba(110, 231, 255, 0.06));
+    border-color: rgba(255, 122, 223, 0.2);
+    color: $color-accent-pink;
+    box-shadow: inset 3px 0 0 $color-accent-pink;
+
+    &::after {
+      opacity: 0.2;
+    }
   }
 }
 
@@ -231,13 +254,9 @@ function isActive(itemRoute: string) {
   font-family: $font-mono;
 }
 
-.nav-arrow {
-  color: $color-accent-blue;
-}
-
 .sidebar-footer {
   padding: 16px;
-  border-top: 1px solid rgba(0, 212, 255, 0.1);
+  border-top: 1px solid rgba(255, 122, 223, 0.08);
 }
 
 .user-info {
@@ -256,7 +275,7 @@ function isActive(itemRoute: string) {
   justify-content: center;
   font-size: 12px;
   font-weight: 700;
-  background: linear-gradient(135deg, $color-accent-blue, $color-accent-purple);
+  background: linear-gradient(135deg, $color-accent-pink, $color-accent-blue);
   color: #fff;
 }
 
@@ -287,17 +306,18 @@ function isActive(itemRoute: string) {
   justify-content: center;
   gap: 6px;
   padding: 8px;
-  border-radius: 6px;
+  border-radius: 4px;
   font-size: 12px;
   color: $color-text-muted;
   background: transparent;
-  border: 1px solid rgba(255, 45, 85, 0.15);
+  border: 1px solid rgba(255, 92, 158, 0.15);
   cursor: pointer;
   transition: all 0.2s;
 
   &:hover {
     color: $color-accent-red;
-    background: rgba(255, 45, 85, 0.06);
+    background: rgba(255, 92, 158, 0.06);
+    border-color: rgba(255, 92, 158, 0.3);
   }
 }
 
@@ -315,8 +335,8 @@ function isActive(itemRoute: string) {
   align-items: center;
   justify-content: space-between;
   padding: 0 24px;
-  background: rgba(2, 8, 18, 0.95);
-  border-bottom: 1px solid rgba(0, 212, 255, 0.12);
+  background: rgba(5, 7, 22, 0.95);
+  border-bottom: 1px solid rgba(255, 122, 223, 0.08);
   backdrop-filter: blur(12px);
 }
 
@@ -328,14 +348,14 @@ function isActive(itemRoute: string) {
 
 .header-sep {
   margin: 0 8px;
-  color: rgba(0, 212, 255, 0.2);
+  color: rgba(255, 122, 223, 0.2);
   font-size: 10px;
 }
 
 .header-current {
   font-size: 12px;
   font-weight: 500;
-  color: $color-accent-blue;
+  color: $color-accent-pink;
 }
 
 .header-right {
@@ -358,22 +378,22 @@ function isActive(itemRoute: string) {
   border-radius: 4px;
   font-size: 11px;
   font-family: $font-mono;
-  background: rgba(0, 255, 159, 0.06);
-  border: 1px solid rgba(0, 255, 159, 0.2);
-  color: $color-accent-cyan;
+  background: rgba(124, 255, 203, 0.06);
+  border: 1px solid rgba(124, 255, 203, 0.2);
+  color: $color-accent-mint;
 }
 
 .status-dot {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: $color-accent-cyan;
+  background: $color-accent-mint;
   animation: pulsate 2s ease-in-out infinite;
 }
 
 @keyframes pulsate {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.3; }
+  0%, 100% { opacity: 1; box-shadow: 0 0 4px $color-accent-mint; }
+  50% { opacity: 0.3; box-shadow: none; }
 }
 
 .main-content {
@@ -388,7 +408,7 @@ function isActive(itemRoute: string) {
   inset: 0;
   pointer-events: none;
   z-index: 0;
-  background: radial-gradient(ellipse 60% 40% at 80% 20%, rgba(168, 85, 247, 0.04), transparent 60%);
+  background: radial-gradient(ellipse 60% 40% at 80% 20%, rgba(255, 122, 223, 0.03), transparent 60%);
 }
 
 .content-wrapper {

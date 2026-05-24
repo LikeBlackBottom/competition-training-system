@@ -209,7 +209,7 @@ onMounted(loadModules)
                   v-for="d in 3"
                   :key="d"
                   @click="setDifficulty(index, d as 1|2|3)"
-                  :style="{ color: (skill.difficultyLevel || skill.difficulty) >= d ? '#ff9f00' : '#3a5070' }"
+                  :style="{ color: (skill.difficultyLevel || skill.difficulty) >= d ? '#ffd166' : '#3a5070' }"
                   class="star-btn"
                 >
                   <el-icon :size="13"><Star /></el-icon>
@@ -228,7 +228,7 @@ onMounted(loadModules)
               <span class="diff-tag" :style="{ color: selected.color, background: selected.color + '15', borderColor: selected.color + '40' }">
                 {{ (skill.difficultyLevel || skill.difficulty) === 1 ? '简单' : (skill.difficultyLevel || skill.difficulty) === 2 ? '中等' : '困难' }}
               </span>
-              <span class="diff-tag" :style="{ color: skill.status === 'active' ? '#00ff9f' : '#64748b', background: skill.status === 'active' ? 'rgba(0,255,159,0.12)' : 'rgba(100,116,139,0.12)', borderColor: skill.status === 'active' ? 'rgba(0,255,159,0.3)' : 'rgba(100,116,139,0.3)' }">
+              <span class="diff-tag" :style="{ color: skill.status === 'active' ? '#7cffcb' : '#64748b', background: skill.status === 'active' ? 'rgba(124,255,203,0.12)' : 'rgba(100,116,139,0.12)', borderColor: skill.status === 'active' ? 'rgba(124,255,203,0.3)' : 'rgba(100,116,139,0.3)' }">
                 {{ skill.status === 'active' ? '启用' : '停用' }}
               </span>
               <div class="skill-actions">
@@ -365,7 +365,7 @@ onMounted(loadModules)
   align-items: center;
   justify-content: space-between;
   padding: 12px 16px;
-  border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+  border-bottom: 1px solid rgba(110, 231, 255, 0.1);
 }
 
 .panel-header > span:first-child {
@@ -406,13 +406,13 @@ onMounted(loadModules)
   border-radius: 4px;
   font-size: 12px;
   cursor: pointer;
-  background: rgba(0, 255, 159, 0.05);
-  border: 1px solid rgba(0, 255, 159, 0.25);
+  background: rgba(124, 255, 203, 0.05);
+  border: 1px solid rgba(124, 255, 203, 0.25);
   color: $color-accent-cyan;
   transition: all 0.2s;
 
   &:hover {
-    background: rgba(0, 255, 159, 0.12);
+    background: rgba(124, 255, 203, 0.12);
   }
 }
 
@@ -540,7 +540,7 @@ onMounted(loadModules)
 .weight-bar {
   width: 80px;
   height: 6px;
-  background: rgba(0, 212, 255, 0.08);
+  background: rgba(110, 231, 255, 0.08);
   border-radius: 3px;
   overflow: hidden;
 }
@@ -594,7 +594,7 @@ onMounted(loadModules)
   padding: 4px;
   border-radius: 4px;
   background: none;
-  border: 1px solid rgba(0, 212, 255, 0.1);
+  border: 1px solid rgba(110, 231, 255, 0.1);
   color: $color-text-muted;
   cursor: pointer;
 
@@ -614,14 +614,14 @@ onMounted(loadModules)
   border-radius: 6px;
   font-size: 13px;
   cursor: pointer;
-  background: rgba(0, 212, 255, 0.04);
-  border: 1px solid rgba(0, 212, 255, 0.2);
+  background: rgba(110, 231, 255, 0.04);
+  border: 1px solid rgba(110, 231, 255, 0.2);
   color: $color-text-muted;
   transition: all 0.2s;
 
   &.active {
-    background: rgba(0, 212, 255, 0.12);
-    border-color: rgba(0, 212, 255, 0.4);
+    background: rgba(110, 231, 255, 0.12);
+    border-color: rgba(110, 231, 255, 0.4);
     color: $color-accent-blue;
   }
 }

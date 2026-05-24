@@ -35,10 +35,10 @@ function getLocalDateString(date = new Date()) {
 }
 
 const statCards = computed(() => [
-  { label: '总队员数', value: members.value.length, color: '#00d4ff' },
-  { label: '活跃队员', value: members.value.filter((m: Member) => m.status === 'active').length, color: '#00ff9f' },
-  { label: '今日提交', value: members.value.filter((m: Member) => m.lastSubmit.startsWith(getLocalDateString())).length, color: '#a855f7' },
-  { label: '参与院校', value: new Set(members.value.map((m: Member) => m.schoolName)).size, color: '#ff9f00' },
+  { label: '总队员数', value: members.value.length, color: '#6ee7ff' },
+  { label: '活跃队员', value: members.value.filter((m: Member) => m.status === 'active').length, color: '#7cffcb' },
+  { label: '今日提交', value: members.value.filter((m: Member) => m.lastSubmit.startsWith(getLocalDateString())).length, color: '#a78bfa' },
+  { label: '参与院校', value: new Set(members.value.map((m: Member) => m.schoolName)).size, color: '#ffd166' },
 ])
 
 async function loadMembers() {
@@ -168,7 +168,7 @@ onMounted(loadData)
         <el-table-column prop="schoolName" label="所属院校" min-width="180" />
         <el-table-column prop="teamName" label="所属队伍" width="120">
           <template #default="{ row }">
-            <span class="neon-tag" style="background:rgba(0,212,255,0.1);color:#00d4ff;border:1px solid rgba(0,212,255,0.25)">{{ row.teamName }}</span>
+            <span class="neon-tag" style="background:rgba(110,231,255,0.1);color:#6ee7ff;border:1px solid rgba(110,231,255,0.25)">{{ row.teamName }}</span>
           </template>
         </el-table-column>
         <el-table-column prop="role" label="角色" width="80">
@@ -178,13 +178,13 @@ onMounted(loadData)
         </el-table-column>
         <el-table-column prop="status" label="状态" width="80">
           <template #default="{ row }">
-            <span v-if="row.status==='active'" class="neon-tag" style="background:rgba(0,255,159,0.1);color:#00ff9f;border:1px solid rgba(0,255,159,0.25)">正常</span>
+            <span v-if="row.status==='active'" class="neon-tag" style="background:rgba(124,255,203,0.1);color:#7cffcb;border:1px solid rgba(124,255,203,0.25)">正常</span>
             <span v-else class="neon-tag" style="background:rgba(100,116,139,0.1);color:#64748b;border:1px solid rgba(100,116,139,0.25)">停用</span>
           </template>
         </el-table-column>
         <el-table-column prop="totalHours" label="累计展示时长" width="100">
           <template #default="{ row }">
-            <span style="font-family:'Orbitron',sans-serif;color:#00d4ff">{{ row.totalHours }}</span> 分钟
+            <span style="font-family:'Orbitron',sans-serif;color:#6ee7ff">{{ row.totalHours }}</span> 分钟
           </template>
         </el-table-column>
         <el-table-column prop="lastSubmit" label="最近提交" width="160" />
@@ -196,7 +196,7 @@ onMounted(loadData)
               </el-button>
               <el-button
                 size="small" text
-                :style="{ color: row.status === 'active' ? '#ff9f00' : '#00ff9f' }"
+                :style="{ color: row.status === 'active' ? '#ffd166' : '#7cffcb' }"
                 @click="handleToggle(row)"
               >
                 {{ row.status === 'active' ? '停用' : '启用' }}
@@ -332,12 +332,12 @@ onMounted(loadData)
   cursor: pointer;
   transition: all 0.2s;
   background: transparent;
-  border: 1px solid rgba(0, 212, 255, 0.15);
+  border: 1px solid rgba(110, 231, 255, 0.15);
   color: $color-text-muted;
 
   &.active {
-    background: rgba(0, 212, 255, 0.15);
-    border-color: rgba(0, 212, 255, 0.4);
+    background: rgba(110, 231, 255, 0.15);
+    border-color: rgba(110, 231, 255, 0.4);
     color: $color-accent-blue;
   }
 }
@@ -348,7 +348,7 @@ onMounted(loadData)
 
 .table-footer {
   padding: 12px 16px;
-  border-top: 1px solid rgba(0, 212, 255, 0.1);
+  border-top: 1px solid rgba(110, 231, 255, 0.1);
 
   span {
     font-size: 12px;
@@ -371,9 +371,9 @@ onMounted(loadData)
   justify-content: center;
   font-size: 12px;
   font-weight: 700;
-  background: linear-gradient(135deg, rgba(0,212,255,0.3), rgba(168,85,247,0.3));
+  background: linear-gradient(135deg, rgba(110,231,255,0.3), rgba(167,139,250,0.3));
   color: $color-text-primary;
-  border: 1px solid rgba(0, 212, 255, 0.2);
+  border: 1px solid rgba(110, 231, 255, 0.2);
 }
 
 .role-tag {
@@ -382,15 +382,15 @@ onMounted(loadData)
   border-radius: 4px;
 
   &.role-leader {
-    background: rgba(168, 85, 247, 0.12);
+    background: rgba(167, 139, 250, 0.12);
     color: $color-accent-purple;
-    border: 1px solid rgba(168, 85, 247, 0.3);
+    border: 1px solid rgba(167, 139, 250, 0.3);
   }
 
   &.role-member {
-    background: rgba(0, 212, 255, 0.08);
+    background: rgba(110, 231, 255, 0.08);
     color: $color-accent-blue;
-    border: 1px solid rgba(0, 212, 255, 0.2);
+    border: 1px solid rgba(110, 231, 255, 0.2);
   }
 }
 
